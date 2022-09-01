@@ -239,17 +239,17 @@ namespace Felsökning.Extensions.Common
         /// <summary>
         ///     Gets or sets a dictionary used to reference city codes in the Swedish Postnummer.
         /// </summary>
-        internal static Dictionary<int, string> PostOrt { get; set; }
+        internal static Dictionary<int, string> PostOrt { get; set; } = new Dictionary<int, string>();
 
         /// <summary>
         ///     Gets or sets a dictionary used to reference the delivery form in the Swedish Postnummer.
         /// </summary>
-        internal static Dictionary<int, string> Utdelningsform { get; set; }
+        internal static Dictionary<int, string> Utdelningsform { get; set; } = new Dictionary<int, string>();
 
         /// <summary>
         ///     Gets or sets a dictionary used to reference the delivery type in the Swedish Postnummer.
         /// </summary>
-        internal static Dictionary<int, string> Tresifferidentifierade { get; set; }
+        internal static Dictionary<int, string> Tresifferidentifierade { get; set; } = new Dictionary<int, string>();
 
         private bool disposedValue = false; // To detect redundant calls
 

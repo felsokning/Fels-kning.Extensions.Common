@@ -1,5 +1,9 @@
-using System.Diagnostics.CodeAnalysis;
-
+//-----------------------------------------------------------------------
+// <copyright file="StringExtensionsTests.cs" company="Felsökning">
+//     Copyright (c) Felsökning. All rights reserved.
+// </copyright>
+// <author>John Bailey</author>
+//-----------------------------------------------------------------------
 namespace Felsökning.Extensions.Common.Tests
 {
     [ExcludeFromCodeCoverage]
@@ -221,7 +225,9 @@ namespace Felsökning.Extensions.Common.Tests
             string testString = "testContent";
             HttpContent testContent = testString.ToJsonHttpContent();
             Assert.IsTrue(testContent?.Headers?.ContentType?.MediaType?.Equals("application/json"));
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             var content = await testContent?.ReadAsStringAsync();
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
             Assert.IsTrue(content.Equals(testString));
         }
 
@@ -232,7 +238,9 @@ namespace Felsökning.Extensions.Common.Tests
             string testString = "testContent";
             HttpContent testContent = testString.ToHttpContent("application/xml");
             Assert.IsTrue(testContent?.Headers?.ContentType?.MediaType?.Equals("application/xml"));
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             var content = await testContent?.ReadAsStringAsync();
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
             Assert.IsTrue(content.Equals(testString));
         }
 

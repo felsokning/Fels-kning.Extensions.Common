@@ -18,7 +18,7 @@ namespace Felsökning.Extensions.Common.Tests
             client.AddHeader("Test", "testing", nullLoggerFactory.CreateLogger("science"));
             Assert.IsTrue(client.DefaultRequestHeaders.Contains("Test"));
             Assert.IsFalse(string.IsNullOrWhiteSpace(client.DefaultRequestHeaders.GetValues("Test").FirstOrDefault()));
-            Assert.IsTrue(client.DefaultRequestHeaders.GetValues("Test").FirstOrDefault().Equals("testing"));
+            Assert.IsTrue(client?.DefaultRequestHeaders?.GetValues("Test")?.FirstOrDefault()?.Equals("testing"));
         }
 
         [TestMethod]

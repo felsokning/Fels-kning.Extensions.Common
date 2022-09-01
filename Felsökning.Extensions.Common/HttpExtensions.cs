@@ -71,7 +71,9 @@ namespace Felsökning.Extensions.Common
 
                     var options = new JsonSerializerOptions();
                     options.Converters.Add(new JsonStringEnumConverter());
+#pragma warning disable CS8603 // Possible null reference return.
                     return JsonSerializer.Deserialize<T>(httpResponseMessageContent, options);
+#pragma warning restore CS8603 // Possible null reference return.
                 }
                 else
                 {
@@ -128,7 +130,9 @@ namespace Felsökning.Extensions.Common
 
                     var options = new JsonSerializerOptions();
                     options.Converters.Add(new JsonStringEnumConverter());
+#pragma warning disable CS8603 // Possible null reference return.
                     return JsonSerializer.Deserialize<T>(httpResponseMessageContent, options);
+#pragma warning restore CS8603 // Possible null reference return.
                 }
                 else
                 {
@@ -228,7 +232,9 @@ namespace Felsökning.Extensions.Common
 
                     var options = new JsonSerializerOptions();
                     options.Converters.Add(new JsonStringEnumConverter());
+#pragma warning disable CS8603 // Possible null reference return.
                     return JsonSerializer.Deserialize<T>(httpResponseMessageContent, options);
+#pragma warning restore CS8603 // Possible null reference return.
                 }
                 else
                 {
@@ -283,7 +289,9 @@ namespace Felsökning.Extensions.Common
 
                     var options = new JsonSerializerOptions();
                     options.Converters.Add(new JsonStringEnumConverter());
+#pragma warning disable CS8603 // Possible null reference return.
                     return JsonSerializer.Deserialize<T>(httpResponseMessageContent, options);
+#pragma warning restore CS8603 // Possible null reference return.
                 }
                 else
                 {
@@ -335,7 +343,9 @@ namespace Felsökning.Extensions.Common
 
                     var options = new JsonSerializerOptions();
                     options.Converters.Add(new JsonStringEnumConverter());
+#pragma warning disable CS8603 // Possible null reference return.
                     return JsonSerializer.Deserialize<T>(httpResponseMessageContent, options);
+#pragma warning restore CS8603 // Possible null reference return.
                 }
                 else
                 {
@@ -390,7 +400,9 @@ namespace Felsökning.Extensions.Common
 
                     var options = new JsonSerializerOptions();
                     options.Converters.Add(new JsonStringEnumConverter());
+#pragma warning disable CS8603 // Possible null reference return.
                     return JsonSerializer.Deserialize<T>(httpResponseMessageContent, options);
+#pragma warning restore CS8603 // Possible null reference return.
                 }
                 else
                 {
