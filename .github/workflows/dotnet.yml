@@ -40,7 +40,6 @@ jobs:
     - name: Adding markdown to build summary
       run: cat code-coverage-results.md >> $GITHUB_STEP_SUMMARY
   analyze:
-      name: analyze
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
