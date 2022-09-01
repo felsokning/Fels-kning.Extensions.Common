@@ -62,6 +62,6 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore --verbosity normal
     - name: Build
-      run: dotnet build --no-restore --verbosity normal
+      run: dotnet build --no-restore --verbosity normal /p:UseSharedCompilation=false
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
