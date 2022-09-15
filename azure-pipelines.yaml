@@ -1,0 +1,62 @@
+# Configure Version Prefix[es]
+name: 4.0$(rev:.r)
+
+# Configures which branches automatically trigger a build
+trigger:
+  branches:
+    include:
+      - master
+
+pr:
+  - master
+
+variables:
+  - name: vmImage
+    value: 'ubuntu-latest' 
+
+stages:
+  - stage: build_and_test_assembly
+    displayName: 'Build and Test Assembly'
+    pool:
+      vmImage: $(vmImage)
+    
+    jobs:
+      - job: build
+        displayName: 'Build Assembly'
+
+        steps:
+          # Add this command to include the .NET6.0 SDK
+          - task: UseDotNet@2
+            displayName: 'Use .NET6.0 SDK'
+            inputs:
+              packageType: 'sdk'
+              version: '6.0.x'
+          # Restore NuGet Packages
+          - task: Bash@3
+            displayName: '.NET Restore'
+            inputs:
+              targetType: 'inline'
+              script: |
+                dotnet restore --verbosity normal
+          # Build Assembly
+          - task: Bash@3
+            displayName: 'Build Assembly'
+            inputs:
+              targetType: 'inline'
+              script: |
+                dotnet build --no-restore --verbosity normal
+          # Run tests
+          - task: Bash@3
+            displayName: 'Test Assembly'
+            inputs:
+              targetType: 'inline'
+              script: |
+                dotnet test --no-restore --verbosity normal --logger:trx
+          # Publish Test Results
+          - task: PublishTestResults@2
+            displayName: 'Publish Test Results'
+            inputs:
+              testResultsFormat: 'VSTest'
+              testResultsFiles: '**/*.xml'
+              searchFolder: '\TestResults\'
+              testRunTitle: 'Assembly Tests'
